@@ -1,14 +1,23 @@
-import React, {Component} from 'react';
-import {Text, View} from 'react-native';
-import { px2dp } from './utils/util.js';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+import Home from './pages/Home';
+import TopPage from './pages/TopPage';
+import BottomTabNavigator from './navigator/BottomTabNavigator';
+import DrawerNavigator from './navigator/DrawerNavigator';
 
-export default class App extends Component {
-  render() {
-    return (
-      <View>
-        <Text>{px2dp(20)}</Text>
-        <Text>Welcomeasdasdasdxczxczx</Text>
-      </View>
-    );
-  }
-}
+export default createAppContainer(createStackNavigator({
+  // 主页面
+  Home: {
+    screen: Home,
+  },
+  TopPage: {
+    screen: TopPage,
+  },
+  // 侧栏抽屉导航
+  DrawerNavigator: {
+    screen: DrawerNavigator,
+  },
+  // 底部导航
+  BottomTabNavigator: {
+    screen: BottomTabNavigator,
+  },
+}))
