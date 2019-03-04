@@ -8,7 +8,7 @@ class Home extends React.Component{
     const { navigation } = this.props;
 
     return (
-      <PageWraper>
+      <PageWraper >
         <Button
           onPress={() => navigation.navigate('DrawerNavigator')}
           title="侧栏导航"

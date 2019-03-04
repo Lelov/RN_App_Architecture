@@ -9,6 +9,7 @@ class PageWraper extends React.Component{
     const { style, hasOwnList, children, isHideHeader, header } = this.props
 
     return (
+      // 设定视图安全区域
       <SafeAreaView style={{flex: 1,...style}}>
         {
           isHideHeader
@@ -22,21 +23,24 @@ class PageWraper extends React.Component{
               {children}
             </ScrollView>
         }
-        
       </SafeAreaView>
     )
   }
 }
 
 PageWraper.propTypes = {
+  // 容器样式
   wraperStyle: PropTypes.object,
+  // 更换默认垂直滚动组件 ScrollView
   hasOwnList: PropTypes.bool,
-  isShowHeader: PropTypes.bool,
+  // 是否隐藏头部
+  isHideHeader: PropTypes.bool,
+  // 设置header 的style
   header: PropTypes.object,
 }
 
 PageWraper.defaultProps = {
-  isShowHeader: false,
+  isHideHeader: false,
 }
 
 export default PageWraper;
